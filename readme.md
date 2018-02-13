@@ -1,3 +1,3 @@
-#preloader.rus
+# preloader.rus
 
 preloader.rus bootstrap4
