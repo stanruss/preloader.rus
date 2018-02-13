@@ -1,0 +1,97 @@
+@import "../libs/bootstrap/scss/bootstrap"
+@import "vars"
+@import "fonts"
+@import "libs"
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+html, body
+	height: 100%
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $default-font
+	overflow-x: hidden
+	input, textarea
+			border: #666 1px solid
+			outline: none
+			&:focus:required:invalid
+				border-color: red
+			&:required:valid
+				border-color: green
+
+.loaded .pl
+	opacity: 0
+.loaded .main
+	opacity: 0
+	transition: .4s
+	z-index: 1008
+.pl
+	position: absolute
+	background-color: #222
+	width: 100%
+	height: 100%
+	z-index: 1003
+	left: 0
+	transition: .9s .4s 
+
+.main 
+	z-index: 1007
+	.preloader
+		display: block
+		position: absolute
+		left: 50%
+		top: 50%
+		width: 100px
+		height: 100px
+		margin: -50px 0 0 -50px
+		border-radius: 50%
+		border: 3px solid transparent
+		border-top-color: #bac900
+		animation: spin 1.7s linear infinite
+		z-index: 10050
+		
+		&:before
+			content: ""
+			position: absolute
+			top: 8px
+			left: 8px
+			right: 8px
+			bottom: 8px
+			border-radius: 50%
+			border: 3px solid transparent
+			border-top-color: #00abd4
+			animation: spin-reverse .6s linear infinite
+		
+		
+		&:after 
+			content: ""
+			position: absolute
+			top: 16px
+			left: 16px
+			right: 16px
+			bottom: 16px
+			border-radius: 50%
+			border: 3px solid transparent
+			border-top-color: #ff1400
+			animation: spin 1s linear infinite
+@keyframes spin
+	0%
+		transform: rotate(0deg)
+	100%
+		transform: rotate(360deg)
+@keyframes spin-reverse
+	0%
+		transform: rotate(0deg)
+	100%
+		transform: rotate(-360deg)
+
+@import "media" // Always at the end
